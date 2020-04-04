@@ -11,7 +11,7 @@ class UserSkillController {
 
       const userId = skills[0].userId;
       await UserSkill.destroy({ where: { userId } });
-      await UserSkill.bulkCreate(req.body, { validate: true });
+      await UserSkill.bulkCreate(skills, { validate: true });
       return res.status(200).json({ message: 'Skills added successfully' });
     } catch (error) {
       console.log(error.message);
