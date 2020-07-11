@@ -1,9 +1,9 @@
 {
-  "name": "ApiNodeJwt",
+  "name": "projetohackforgood",
   "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:Kelvinmti/ApiNodeJwt.git",
-  "author": "Kelvin Mendes <kdevweb@gmail.com>",
+  "main": "server.js",
+  "repository": "git@bitbucket.org:kelmendes/projetohackforgood.git",
+  "author": "Kelvin Mendes <kdevweb@gmail.com>, Rodolfo Azevedo <rof20004@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",

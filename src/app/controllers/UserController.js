@@ -1,6 +1,8 @@
 import * as Yup from 'yup';
 
 import User from '../models/User';
+import Skill from '../models/Skill';
+import UserSkill from '../models/UserSkill';
 
 class UserController {
   async store(req, res) {
@@ -75,6 +77,34 @@ class UserController {
       name,
       email,
     });
+  }
+
+  async index(req, res) {
+    try {
+      const id = req.params.id;
+      if (!id) {
+        return res.status(400).json({ error: 'userId was not informed' });
+      }
+
+      const user = await User.findOne({
+        where: {
+          id: id
+        },
+        include: [
+          {
+            model: Skill,
+            as: 'skills',
+            required: false,
+            attributes: ['id', 'description'],
+            through: { attributes: [] }
+          }
+        ]
+      });
+      return res.status(200).json(user);
+    } catch (error) {
+      console.log(error.message);
+      return res.status(400).json({ error: 'User was not found' });
+    }
   }
 }
 
